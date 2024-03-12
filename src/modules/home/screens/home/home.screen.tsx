@@ -1,10 +1,14 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+
+import { Skeleton } from '../../../../shared/components/skeleton';
+import { Header } from '../../../../shared/components/header';
 
 export const HomeScreen = () => {
 	return (
-		<View>
+		<Skeleton>
+			<Header title={'Star wars characters'} />
 			<Text>Home Screen</Text>
-		</View>
+		</Skeleton>
 	);
 };
