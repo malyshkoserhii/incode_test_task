@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		paddingVertical: 10,
 	},
 	title: {
 		fontFamily: FONTS.Roboto.regular,

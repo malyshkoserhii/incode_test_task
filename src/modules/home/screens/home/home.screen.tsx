@@ -5,6 +5,7 @@ import { Header } from '../../../../shared/components/header';
 import { useGetCharacters } from '../../hooks';
 import { CharactersList } from '../../components/characters-list';
 import { Loader } from '../../../../shared/components/loader';
+import { GenderInfo } from '../../components/gender-info';
 
 export const HomeScreen = () => {
 	const { characters, onEndReached, isInitialLoading, isPaginationLoading } =
@@ -13,6 +14,8 @@ export const HomeScreen = () => {
 	return (
 		<Skeleton>
 			<Header title="Star Wars Characters" />
+
+			<GenderInfo />
 
 			{isInitialLoading ? (
 				<Loader />

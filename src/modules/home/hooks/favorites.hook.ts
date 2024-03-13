@@ -1,12 +1,11 @@
 import * as React from 'react';
 
-import { useCharacterInfoState } from '../../../shared/selectors';
+import { useCharactersState } from '../../../shared/selectors';
 import { asyncStorage } from '../../../shared/services';
 import { STORAGE_KEYS } from '../../../shared/constants';
 
 export const useFavorites = () => {
-	const { favorites, toggleFavorite, initFavorites } =
-		useCharacterInfoState();
+	const { favorites, toggleFavorite, initFavorites } = useCharactersState();
 
 	React.useEffect(() => {
 		const getFavorites = async () => {

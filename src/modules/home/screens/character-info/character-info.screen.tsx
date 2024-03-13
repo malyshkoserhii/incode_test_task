@@ -54,33 +54,33 @@ export const CharacterInfoScreen: React.FunctionComponent<
 
 	return (
 		<Skeleton>
+			<Header
+				title={character?.name}
+				onArrow={onArrow}
+				rightButton={
+					<PressarableIcon
+						icon={
+							<Heart
+								strokeWidth={6}
+								stroke={
+									isFavorite(character?.name)
+										? COLORS.internationalOrange
+										: COLORS.antiFlashWhite
+								}
+								fill={
+									isFavorite(character?.name)
+										? COLORS.internationalOrange
+										: 'transparent'
+								}
+								width={30}
+								height={30}
+							/>
+						}
+						onPress={onHeartPress}
+					/>
+				}
+			/>
 			<ScrollView showsVerticalScrollIndicator={false}>
-				<Header
-					title={character?.name}
-					onArrow={onArrow}
-					rightButton={
-						<PressarableIcon
-							icon={
-								<Heart
-									strokeWidth={6}
-									stroke={
-										isFavorite(character?.name)
-											? COLORS.internationalOrange
-											: COLORS.antiFlashWhite
-									}
-									fill={
-										isFavorite(character?.name)
-											? COLORS.internationalOrange
-											: 'transparent'
-									}
-									width={30}
-									height={30}
-								/>
-							}
-							onPress={onHeartPress}
-						/>
-					}
-				/>
 				<InfoBox title="Name: " description={character.name} />
 				<InfoBox
 					title="Date of birth: "
