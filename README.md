@@ -1,79 +1,75 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# Incode Group Test Task
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+A simple react native application for discoverinfg Star Wars Characters.
 
-## Step 1: Start the Metro Server
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Run Locally
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Clone the project
 
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+  git clone https://github.com/malyshkoserhii/incode_test_task.git
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+Go to the project directory
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+  cd incode_test_task
 ```
 
-### For iOS
+Install dependencies
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+  yarn add
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Run the Application from main brach
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```bash
+  git checkout main
+```
 
-## Step 3: Modifying your App
+Install pods (if you want to run it on iOS)
 
-Now that you have successfully run the app, let's modify it.
+```bash
+  cd ios && pod install && cd ..
+```
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+Start iOS
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+```bash
+  yarn ios
+```
 
-## Congratulations! :tada:
+Start Android
 
-You've successfully run and modified your React Native App. :partying_face:
+```bash
+  yarn android
+```
 
-### Now what?
+## Features
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+- Paginated and optimazed list with all Star Wars characters, which are provided by https://swapi.py4e.com API;
+- A separate screen with a particular character, which contains main information about charcter: name, date of birth, gender, appearance, homeworld, films, species, starship, vehicles);
+- Marking charactrs as favorite and toggling this status;
+- Counting male, female and other genders according to favorite status;
+- Favorite status and gender counting information is saved into async storage, so the this data renders even after reloading the application;
+- Reseting favorite character status and count gender counter information are available only after pressing "Yes" on a special popup.
+- Cross platform (iOS and Android).
 
-# Troubleshooting
+## About codebase
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+- Application was devided into modules (in this case only one module - home);
+- All comunication with API is based on a specific services (characters service, starship service etc.);
+- Business logic implemented in special hooks. Every hook is responsible only for one thing (single responsibility principle);
+- There are lots of shared components was implemented, in order to reuse them across the Application and make it more flexible;
+- There are a lot of constants (COLORS, FONTS, STORAGE KEYS) that is storing in one place and reusing across the Application;
+- Using utils in order to incapsulate some important logic;
+- Using state selectors in one appropriate hook.
+## Tech Stack
 
-# Learn More
+**Client:** React Native, Typescript, Zustand
 
-To learn more about React Native, take a look at the following resources:
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## Demo
