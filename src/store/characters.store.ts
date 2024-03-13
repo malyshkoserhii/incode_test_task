@@ -1,10 +1,10 @@
 import { createWithEqualityFn } from 'zustand/traditional';
 import { shallow } from 'zustand/shallow';
-import { Person } from '../shared/types';
+import { Character } from '../shared/types';
 
 export type CharactersStore = {
-	characters: Array<Person>;
-	setCharacters: (characters: Array<Person>) => void;
+	characters: Array<Character>;
+	setCharacters: (characters: Array<Character>) => void;
 	isNexPage: boolean;
 	setIsNextPage: (isNexPage: boolean) => void;
 	isPreviousPage: boolean;
@@ -14,7 +14,7 @@ export type CharactersStore = {
 export const useChatactersStore = createWithEqualityFn<CharactersStore>(
 	(set, get) => ({
 		characters: [],
-		setCharacters: (characters: Array<Person>) =>
+		setCharacters: (characters: Array<Character>) =>
 			set(() => {
 				const prevCharacters = get().characters;
 				const updatedChatracters = [...prevCharacters].concat(

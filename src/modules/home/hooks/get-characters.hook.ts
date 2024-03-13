@@ -2,36 +2,63 @@ import * as React from 'react';
 
 import { charactersService } from '../../../shared/services';
 import { useCharactersState } from '../../../shared/selectors';
+import { Character, PaginatedResponse } from '../../../shared/types';
 
 export const useGetCharacters = () => {
-	const [initialLoading, setInitialLoading] = React.useState(false);
-	const [paginationLoading, setPaginationLoading] = React.useState(false);
+	const [isInitialLoading, setIsInitialLoading] = React.useState(false);
+	const [isPaginationLoading, setIsPaginationLoading] = React.useState(false);
+	const [page, setPage] = React.useState(2);
 
-	const { characters, setCharacters, setIsPreviousPage, setIsNextPage } =
-		useCharactersState();
+	const {
+		characters,
+		isNexPage,
+		setCharacters,
+		setIsPreviousPage,
+		setIsNextPage,
+	} = useCharactersState();
 
 	React.useEffect(() => {
 		const getCharacters = async () => {
 			try {
-				setInitialLoading(true);
+				setIsInitialLoading(true);
 				const data = await charactersService.getCharacters(1);
-
-				setCharacters(data?.results);
-				setIsNextPage(Boolean(data?.next));
-				setIsPreviousPage(Boolean(data?.previous));
-
-				return data;
+				populdateState(data);
 			} catch (error) {
-				setInitialLoading(false);
+				setIsInitialLoading(false);
 			} finally {
-				setInitialLoading(false);
+				setIsInitialLoading(false);
 			}
 		};
 
 		getCharacters();
 	}, []);
 
+	const populdateState = (data: PaginatedResponse<Character>) => {
+		setCharacters(data?.results);
+		setIsNextPage(Boolean(data?.next));
+		setIsPreviousPage(Boolean(data?.previous));
+	};
+
+	const onEndReached = async () => {
+		try {
+			if (!isNexPage) {
+				return;
+			}
+			setPage((prev) => prev + 1);
+			setIsPaginationLoading(true);
+			const data = await charactersService.getCharacters(page);
+			populdateState(data);
+		} catch (error) {
+			setIsPaginationLoading(false);
+		} finally {
+			setIsPaginationLoading(false);
+		}
+	};
+
 	return {
 		characters,
+		isInitialLoading,
+		isPaginationLoading,
+		onEndReached,
 	};
 };

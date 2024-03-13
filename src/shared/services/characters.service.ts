@@ -1,4 +1,4 @@
-import { PaginatedResponse, Person } from '../types';
+import { PaginatedResponse, Character } from '../types';
 import { HttpFactoryService } from './http-factory.service';
 import { HttpService } from './http.service';
 
@@ -7,10 +7,10 @@ export class CharactersService {
 
 	public async getCharacters(
 		page: number,
-	): Promise<PaginatedResponse<Person>> {
-		const response = await this.httpService.get<PaginatedResponse<Person>>(
-			`people/?page=${page}`,
-		);
+	): Promise<PaginatedResponse<Character>> {
+		const response = await this.httpService.get<
+			PaginatedResponse<Character>
+		>(`people/?page=${page}`);
 
 		return response;
 	}
