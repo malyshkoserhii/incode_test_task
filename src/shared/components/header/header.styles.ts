@@ -33,6 +33,8 @@ export const styles = StyleSheet.create({
 		height: 40,
 	},
 	rightButtonWrapper: {
+		width: 40,
+		height: 40,
 		flexDirection: 'row',
 		alignItems: 'center',
 	},

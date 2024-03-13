@@ -17,6 +17,10 @@ import {
 } from '../../hooks';
 import { useGetFilms } from '../../hooks/get-films';
 import { ScrollView } from 'react-native';
+import { PressarableIcon } from '../../../../shared/components/pressarable-icon';
+import Heart from '../../../../assets/icons/heart.svg';
+import { COLORS } from '../../../../shared/themes';
+import { useFavorites } from '../../hooks/favorites.hook';
 
 export type CharacterInfoScreenProps = NativeStackScreenProps<
 	RootStackParamList,
@@ -30,6 +34,8 @@ export const CharacterInfoScreen: React.FunctionComponent<
 		return route?.params?.character;
 	}, []);
 
+	const { isFavorite, toggleFavorite } = useFavorites();
+
 	const { homeword } = useGetPlanet({ character });
 	const { films } = useGetFilms({ character });
 	const { starships } = useGetStarships({ character });
@@ -42,10 +48,39 @@ export const CharacterInfoScreen: React.FunctionComponent<
 		navigation.goBack();
 	};
 
+	const onHeartPress = () => {
+		toggleFavorite(character?.name);
+	};
+
 	return (
 		<Skeleton>
 			<ScrollView showsVerticalScrollIndicator={false}>
-				<Header title={character?.name} onArrow={onArrow} />
+				<Header
+					title={character?.name}
+					onArrow={onArrow}
+					rightButton={
+						<PressarableIcon
+							icon={
+								<Heart
+									strokeWidth={6}
+									stroke={
+										isFavorite(character?.name)
+											? COLORS.internationalOrange
+											: COLORS.antiFlashWhite
+									}
+									fill={
+										isFavorite(character?.name)
+											? COLORS.internationalOrange
+											: 'transparent'
+									}
+									width={30}
+									height={30}
+								/>
+							}
+							onPress={onHeartPress}
+						/>
+					}
+				/>
 				<InfoBox title="Name: " description={character.name} />
 				<InfoBox
 					title="Date of birth: "

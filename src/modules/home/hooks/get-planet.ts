@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import { Character } from 'shared/types';
-import { useCharacterInfoState } from '../../../shared/selectors/character-info-state.hook';
+import { useCharacterInfoState } from '../../../shared/selectors';
 import { getEntityId } from '../../../shared/utils';
-import { planetService } from '../../../shared/services/planet.service';
+import { planetService } from '../../../shared/services';
 
 type UseGetPlanet = {
 	character: Character;

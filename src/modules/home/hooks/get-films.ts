@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import { Character } from 'shared/types';
-import { useCharacterInfoState } from '../../../shared/selectors/character-info-state.hook';
+import { useCharacterInfoState } from '../../../shared/selectors';
 import { getIds } from '../../../shared/utils';
-import { filmService } from '../../../shared/services/film.service';
+import { filmService } from '../../../shared/services';
 
 type UseGetFilms = {
 	character: Character;

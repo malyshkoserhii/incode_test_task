@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import { Character } from 'shared/types';
-import { useCharacterInfoState } from '../../../shared/selectors/character-info-state.hook';
+import { useCharacterInfoState } from '../../../shared/selectors';
 import { getIds } from '../../../shared/utils';
-import { speciesService } from '../../../shared/services/species.service';
+import { speciesService } from '../../../shared/services';
 
 type UseGetSpecies = {
 	character: Character;
