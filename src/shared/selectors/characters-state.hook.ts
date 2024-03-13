@@ -1,4 +1,4 @@
-import { useChatactersStore } from '../../store';
+import { useChatactersStore } from '../../../src/store';
 
 export const useCharactersState = () => {
 	const [

@@ -29,23 +29,14 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 	},
 	pressarableIcon: {
-		position: 'absolute',
-		top: 16,
-		left: 16,
 		width: 40,
 		height: 40,
 	},
 	rightButtonWrapper: {
-		position: 'absolute',
-		top: 16,
-		right: 16,
 		flexDirection: 'row',
 		alignItems: 'center',
 	},
 	dummy: {
-		position: 'absolute',
-		top: 16,
-		right: 16,
 		width: 40,
 		height: 40,
 	},

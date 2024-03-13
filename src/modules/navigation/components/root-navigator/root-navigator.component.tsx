@@ -7,7 +7,7 @@ import {
 	RootStackParamList,
 } from '../../types/navigation.type';
 import { SCREEN_OPTIONS } from '../../constants/screen-options';
-import { HomeScreen } from '../../../../modules/home';
+import { CharacterInfoScreen, HomeScreen } from '../../../../modules/home';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -18,6 +18,11 @@ export const RootNavigator = () => {
 				<Stack.Screen
 					name={NAVIGATION_KEYS.HOME}
 					component={HomeScreen}
+					options={SCREEN_OPTIONS}
+				/>
+				<Stack.Screen
+					name={NAVIGATION_KEYS.CHARACTER_INFO}
+					component={CharacterInfoScreen}
 					options={SCREEN_OPTIONS}
 				/>
 			</>
