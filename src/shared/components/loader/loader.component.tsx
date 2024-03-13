@@ -1,20 +1,20 @@
 import * as React from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, StyleProp, View, ViewStyle } from 'react-native';
 
 import { styles } from './loader.styles';
 
 type LoaderProps = {
-	isLoading: boolean;
 	size?: number;
+	extraLoaderWrapperStyles?: StyleProp<ViewStyle>;
 };
 
 export const Loader: React.FunctionComponent<LoaderProps> = ({
-	isLoading,
 	size = 16,
+	extraLoaderWrapperStyles = {},
 }) => {
 	return (
-		<View style={styles.loaderWrapper}>
-			{isLoading ? <ActivityIndicator size={size} /> : null}
+		<View style={[styles.loaderWrapper, extraLoaderWrapperStyles]}>
+			<ActivityIndicator size={size} />
 		</View>
 	);
 };

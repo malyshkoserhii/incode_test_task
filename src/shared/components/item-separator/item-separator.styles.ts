@@ -3,12 +3,10 @@ import { StyleSheet } from 'react-native';
 import { COLORS } from '../../themes';
 
 export const styles = StyleSheet.create({
-	safeArea: {
-		flex: 1,
-		backgroundColor: COLORS.smokyBlack,
-	},
-	contentContainer: {
-		flex: 1,
-		paddingHorizontal: 16,
+	separator: {
+		width: '100%',
+		height: 2,
+		backgroundColor: COLORS.dimGrey,
+		marginVertical: 10,
 	},
 });
