@@ -1,17 +1,11 @@
-import {
-	HttpClient,
-	HttpConfig,
-	Map,
-	PaginatedResponse,
-	Response,
-} from '../types';
+import { HttpClient, HttpConfig, Map, Response } from '../types';
 
 import { BASE_URL } from '@env';
 
 export class HttpService {
 	constructor(
 		private fetchingService: HttpClient,
-		private baseUrl = 'https://swapi.py4e.com/api',
+		private baseUrl = BASE_URL,
 	) {}
 
 	public createQueryLink(base: string, args: Map) {
