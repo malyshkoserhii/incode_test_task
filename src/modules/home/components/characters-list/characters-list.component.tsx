@@ -27,8 +27,6 @@ export const CharactersList: React.FunctionComponent<CharactersListProps> = ({
 }) => {
 	const { favorites, toggleFavorite, isFavorite } = useFavorites();
 
-	console.log('favorites: ', favorites);
-
 	const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
 	const getCharacterInfo = (character: Character) => {
@@ -75,7 +73,7 @@ export const CharactersList: React.FunctionComponent<CharactersListProps> = ({
 				) : null
 			}
 			ItemSeparatorComponent={renderSeparator}
-			onEndReachedThreshold={0.1}
+			onEndReachedThreshold={0.3}
 		/>
 	);
 };
