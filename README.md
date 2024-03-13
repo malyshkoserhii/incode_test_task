@@ -44,6 +44,12 @@ Install pods (if you want to run it on iOS)
   cd ios && pod install && cd ..
 ```
 
+Run Metro server
+
+```bash
+  yarn start
+```
+
 Start iOS
 
 ```bash
