@@ -5,22 +5,24 @@ import { COLORS, FONTS } from '../../../../shared/themes';
 export const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
+		paddingHorizontal: 16,
+		marginBottom: 10,
+	},
+	column: {
+		flexDirection: 'column',
 	},
 	title: {
-		fontFamily: FONTS.Roboto.regular,
-		fontSize: 14,
-		color: COLORS.antiFlashWhite,
-		marginBottom: 4,
-	},
-	name: {
-		fontFamily: FONTS.Roboto.medium,
+		fontFamily: FONTS.Roboto.bold,
 		fontSize: 16,
 		color: COLORS.antiFlashWhite,
 	},
-	nameBox: {
-		width: '44%',
+	titleMb: {
+		marginBottom: 4,
 	},
-	box: {
-		width: '28%',
+	description: {
+		marginRight: 6,
+		fontFamily: FONTS.Roboto.regular,
+		fontSize: 16,
+		color: COLORS.antiFlashWhite,
 	},
 });

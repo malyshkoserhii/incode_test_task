@@ -10,9 +10,5 @@ type ListEmptyProps = {
 export const ListEmpty: React.FunctionComponent<ListEmptyProps> = ({
 	text,
 }) => {
-	return (
-		<View style={styles.conrainer}>
-			<Text style={styles.text}>{text}</Text>
-		</View>
-	);
+	return <Text style={styles.text}>{text}</Text>;
 };

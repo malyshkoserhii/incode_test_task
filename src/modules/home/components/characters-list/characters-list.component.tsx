@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { FlatList, ListRenderItem } from 'react-native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 import { styles } from './characters-list.styles';
 import { Character } from '../../../../shared/types';
@@ -7,6 +8,10 @@ import { CharactersListItem } from '../characters-list-item';
 import { ListEmpty } from '../../../../shared/components/list-empty';
 import { ItemSeparator } from '../../../../shared/components/item-separator';
 import { Loader } from '../../../../shared/components/loader';
+import {
+	NAVIGATION_KEYS,
+	RootStackParamList,
+} from '../../../../modules/navigation/types/navigation.type';
 
 type CharactersListProps = {
 	charactes: Array<Character>;
@@ -19,7 +24,13 @@ export const CharactersList: React.FunctionComponent<CharactersListProps> = ({
 	onEndReached,
 	isPaginationLoading = false,
 }) => {
-	const getCharacterInfo = (character: Character) => {};
+	const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
+	const getCharacterInfo = (character: Character) => {
+		navigation.navigate(NAVIGATION_KEYS.CHARACTER_INFO, {
+			character,
+		});
+	};
 
 	const renderItem: ListRenderItem<Character> = React.useCallback(
 		({ item }) => {

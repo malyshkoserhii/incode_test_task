@@ -27,7 +27,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
 }) => {
 	return (
 		<View style={[styles.container, additionalContainerStyles]}>
-			{onArrow && (
+			{onArrow ? (
 				<PressarableIcon
 					icon={<Arrow />}
 					onPress={onArrow}
@@ -36,6 +36,8 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
 						additionalArrowStyles,
 					]}
 				/>
+			) : (
+				<View style={styles.dummy} />
 			)}
 
 			{centralElement ? (
@@ -49,7 +51,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
 			{rightButton ? (
 				<View style={styles.rightButtonWrapper}>{rightButton}</View>
 			) : (
-				<View style={styles.dummy}>{rightButton}</View>
+				<View style={styles.dummy} />
 			)}
 		</View>
 	);
