@@ -72,6 +72,6 @@ Start Android
 - All comunication with API is based on a specific services (characters service, starship service etc.);
 - Business logic implemented in special hooks. Every hook is responsible only for one thing (single responsibility principle);
 - There are lots of shared components was implemented, in order to reuse them across the Application and make it more flexible;
-- There are a lot of constants (COLORS, FONTS, STORAGE KEYS) that is storing in one place and reusing across the Application;
+- There are a lot of constants (COLORS, FONTS, STORAGE KEYS) that are storing in one place and reusing across the Application;
 - Using utils in order to incapsulate some important logic;
-- Using state selectors in one appropriate hook.
+- Using state selectors in one relevant hook.
