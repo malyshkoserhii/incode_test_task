@@ -2,9 +2,9 @@ import { AxiosError } from 'axios';
 
 export type IError = AxiosError<{ message: string }>;
 
-export interface IMap {
+export type Map = {
 	[key: string]: any;
-}
+};
 
 export enum HttpStatusCode {
 	CONTINUE = 100,
@@ -137,39 +137,33 @@ export enum HttpMethods {
 	DELETE = 'delete',
 }
 
-export interface IHttpConfig {
+export type HttpConfig = {
 	url?: string;
 	headers?: Record<string, string>;
 	params?: any;
 	data?: any;
-}
+};
 
-export interface IMockHttpConfig extends IHttpConfig {
+export type MockHttpConfig = {
 	method: HttpMethods;
-}
-export interface IHttpClient {
-	get<R>(url: string, config?: IHttpConfig): Promise<R>;
-	post<R, D>(url: string, data: D, config?: IHttpConfig): Promise<R>;
-	put<R, D>(url: string, data: D, config?: IHttpConfig): Promise<R>;
-	delete<R>(url: string, config?: IHttpConfig): Promise<R>;
-	patch<R, D>(url: string, data: D, config?: IHttpConfig): Promise<R>;
-}
+} & HttpConfig;
 
-export interface IResponse<T = object[] | undefined> {
+export type HttpClient = {
+	get<R>(url: string, config?: HttpConfig): Promise<R>;
+	post<R, D>(url: string, data: D, config?: HttpConfig): Promise<R>;
+	put<R, D>(url: string, data: D, config?: HttpConfig): Promise<R>;
+	delete<R>(url: string, config?: HttpConfig): Promise<R>;
+	patch<R, D>(url: string, data: D, config?: HttpConfig): Promise<R>;
+};
+
+export type Response<T = object[] | undefined> = {
 	status: HttpStatusCode;
 	data: T;
-}
+};
 
-export interface IListResponse<T> {
-	pages: number;
-	result: T[];
-	size: number;
-	total: number;
-}
-
-export interface IEntity {
-	timestampDate: Date;
-	id: string;
-	updatedAt: Date;
-	createdAt: Date;
-}
+export type PaginatedResponse<T> = {
+	count: number;
+	next: string | null;
+	previous: string | null;
+	results: Array<T>;
+};

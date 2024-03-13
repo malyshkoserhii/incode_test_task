@@ -1,14 +1,20 @@
-import { IHttpClient, IHttpConfig, IMap, IResponse } from '../types';
+import {
+	HttpClient,
+	HttpConfig,
+	Map,
+	PaginatedResponse,
+	Response,
+} from '../types';
 
 import { BASE_URL } from '@env';
 
 export class HttpService {
 	constructor(
-		private fetchingService: IHttpClient,
-		private baseUrl = 'https://swapi-api.hbtn.io/api',
+		private fetchingService: HttpClient,
+		private baseUrl = 'https://swapi.py4e.com/api',
 	) {}
 
-	public createQueryLink(base: string, args: IMap) {
+	public createQueryLink(base: string, args: Map) {
 		let url = `${base}?`;
 		Object.keys(args).forEach((parameter, index) => {
 			if (args[parameter]) {
@@ -20,9 +26,9 @@ export class HttpService {
 		return url;
 	}
 
-	public async get<T>(url: string, config?: IHttpConfig) {
+	public async get<T>(url: string, config?: HttpConfig) {
 		return this.fetchingService
-			.get<IResponse<T>>(this.getFullApiUrl(url), {
+			.get<Response<T>>(this.getFullApiUrl(url), {
 				...config,
 				headers: {
 					...config?.headers,
@@ -35,9 +41,9 @@ export class HttpService {
 			});
 	}
 
-	public async post<T, D>(url: string, data: D, config?: IHttpConfig) {
+	public async post<T, D>(url: string, data: D, config?: HttpConfig) {
 		return this.fetchingService
-			.post<IResponse<T>, D>(this.getFullApiUrl(url), data, {
+			.post<Response<T>, D>(this.getFullApiUrl(url), data, {
 				...config,
 				headers: {
 					...config?.headers,
@@ -50,9 +56,9 @@ export class HttpService {
 			});
 	}
 
-	public put<T, D>(url: string, data: D, config?: IHttpConfig) {
+	public put<T, D>(url: string, data: D, config?: HttpConfig) {
 		return this.fetchingService
-			.put<IResponse<T>, D>(this.getFullApiUrl(url), data, {
+			.put<Response<T>, D>(this.getFullApiUrl(url), data, {
 				...config,
 				headers: {
 					...config?.headers,
@@ -65,9 +71,9 @@ export class HttpService {
 			});
 	}
 
-	public patch<T, D>(url: string, data: D, config?: IHttpConfig) {
+	public patch<T, D>(url: string, data: D, config?: HttpConfig) {
 		return this.fetchingService
-			.patch<IResponse<T>, D>(this.getFullApiUrl(url), data, {
+			.patch<Response<T>, D>(this.getFullApiUrl(url), data, {
 				...config,
 				headers: {
 					...config?.headers,
@@ -75,14 +81,14 @@ export class HttpService {
 				},
 			})
 			.then((result) => {
-				this.checkResponseStatus(result);
+				// this.checkResponseStatus(result);
 				return result.data;
 			});
 	}
 
-	public delete<T>(url: string, config?: IHttpConfig) {
+	public delete<T>(url: string, config?: HttpConfig) {
 		return this.fetchingService
-			.delete<IResponse<T>>(this.getFullApiUrl(url), {
+			.delete<Response<T>>(this.getFullApiUrl(url), {
 				...config,
 				headers: {
 					...config?.headers,
@@ -90,7 +96,7 @@ export class HttpService {
 				},
 			})
 			.then((result) => {
-				this.checkResponseStatus(result);
+				// this.checkResponseStatus(result);
 				return result.data;
 			});
 	}
@@ -105,7 +111,7 @@ export class HttpService {
 		return `${this.baseUrl}/${url}`;
 	}
 
-	private checkResponseStatus<T>(result: IResponse<T>) {
+	private checkResponseStatus<T>(result: Response<T>) {
 		if (result.status >= 400 && result.status < 600) {
 			const errorData = {
 				response: {
