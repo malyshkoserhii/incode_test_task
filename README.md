@@ -1,8 +1,16 @@
 
 # Incode Group Test Task
 
-A simple react native application for discoverinfg Star Wars Characters.
+A simple React Native application for discoverinfg Star Wars Characters.
 
+## Demo
+![demo](https://github.com/malyshkoserhii/incode_test_task/assets/62348952/90f808cd-949b-4eb3-8711-3204213dbbc5)
+
+[Demo video](https://drive.google.com/file/d/1MEtCsD7wLGiFrnLMMb0NAmAO2mLSbS6Z/view?usp=drive_link)
+
+## Tech Stack
+
+**Client:** React Native, Typescript, Zustand
 
 ## Run Locally
 
@@ -67,9 +75,3 @@ Start Android
 - There are a lot of constants (COLORS, FONTS, STORAGE KEYS) that is storing in one place and reusing across the Application;
 - Using utils in order to incapsulate some important logic;
 - Using state selectors in one appropriate hook.
-## Tech Stack
-
-**Client:** React Native, Typescript, Zustand
-
-
-## Demo
