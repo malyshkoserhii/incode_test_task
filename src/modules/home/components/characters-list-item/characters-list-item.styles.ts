@@ -5,6 +5,7 @@ import { COLORS, FONTS } from '../../../../shared/themes';
 export const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
+		justifyContent: 'space-between',
 	},
 	title: {
 		fontFamily: FONTS.Roboto.regular,
@@ -18,9 +19,16 @@ export const styles = StyleSheet.create({
 		color: COLORS.antiFlashWhite,
 	},
 	nameBox: {
-		width: '44%',
+		paddingRight: 2,
+		width: '42%',
 	},
 	box: {
-		width: '28%',
+		paddingRight: 2,
+		width: '25%',
+	},
+	iconWrapper: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		width: '8%',
 	},
 });

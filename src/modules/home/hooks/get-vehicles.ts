@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import { Character } from 'shared/types';
-import { useCharacterInfoState } from '../../../shared/selectors/character-info-state.hook';
+import { useCharacterInfoState } from '../../../shared/selectors';
 import { getIds } from '../../../shared/utils';
-import { vehiclesService } from '../../../shared/services/vehicles.service';
+import { vehiclesService } from '../../../shared/services';
 
 type UseGetVehicles = {
 	character: Character;

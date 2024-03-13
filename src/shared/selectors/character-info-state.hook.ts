@@ -12,6 +12,12 @@ export const useCharacterInfoState = () => {
 		setVehicels,
 		starships,
 		setStarships,
+		favorites,
+		initFavorites,
+		addFavorite,
+		removeFavorite,
+		toggleFavorite,
+		resetFavorites,
 	] = useChatactersInfoStore((state) => [
 		state.homeword,
 		state.setHomeword,
@@ -23,6 +29,12 @@ export const useCharacterInfoState = () => {
 		state.setVehicels,
 		state.starships,
 		state.setStarships,
+		state.favorites,
+		state.initFavorites,
+		state.addFavorite,
+		state.removeFavorite,
+		state.toggleFavorite,
+		state.resetFavorites,
 	]);
 
 	const clearCharacterInfoState = () => {
@@ -31,6 +43,7 @@ export const useCharacterInfoState = () => {
 		setSpecies([]);
 		setVehicels([]);
 		setStarships([]);
+		resetFavorites();
 	};
 
 	return {
@@ -45,5 +58,11 @@ export const useCharacterInfoState = () => {
 		setVehicels,
 		starships,
 		setStarships,
+		favorites,
+		initFavorites,
+		addFavorite,
+		removeFavorite,
+		toggleFavorite,
+		resetFavorites,
 	};
 };

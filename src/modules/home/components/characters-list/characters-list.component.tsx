@@ -12,6 +12,7 @@ import {
 	NAVIGATION_KEYS,
 	RootStackParamList,
 } from '../../../../modules/navigation/types/navigation.type';
+import { useFavorites } from '../../hooks/favorites.hook';
 
 type CharactersListProps = {
 	charactes: Array<Character>;
@@ -24,6 +25,10 @@ export const CharactersList: React.FunctionComponent<CharactersListProps> = ({
 	onEndReached,
 	isPaginationLoading = false,
 }) => {
+	const { favorites, toggleFavorite, isFavorite } = useFavorites();
+
+	console.log('favorites: ', favorites);
+
 	const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
 	const getCharacterInfo = (character: Character) => {
@@ -32,16 +37,23 @@ export const CharactersList: React.FunctionComponent<CharactersListProps> = ({
 		});
 	};
 
+	const getFavoriteCharacter = (character: Character) => {
+		toggleFavorite(character?.name);
+	};
+
 	const renderItem: ListRenderItem<Character> = React.useCallback(
 		({ item }) => {
+			const favorite = isFavorite(item?.name);
 			return (
 				<CharactersListItem
 					character={item}
+					isFavorite={favorite}
 					getCharacterInfo={getCharacterInfo}
+					getFavoriteCharacter={getFavoriteCharacter}
 				/>
 			);
 		},
-		[],
+		[favorites],
 	);
 
 	const renderSeparator = () => {
