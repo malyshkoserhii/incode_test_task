@@ -62,7 +62,7 @@ Start Android
 - A separate screen with a particular character, which contains main information about charcter: name, date of birth, gender, appearance, homeworld, films, species, starship, vehicles);
 - Marking charactrs as favorite and toggling this status;
 - Counting male, female and other genders according to favorite status;
-- Favorite status and gender counting information is saved into async storage, so the this data renders even after reloading the application;
+- Favorite status and gender counting information is saved into async storage, so this data renders even after reloading the Application;
 - Reseting favorite character status and count gender counter information are available only after pressing "Yes" on a special popup.
 - Cross platform (iOS and Android).
 
